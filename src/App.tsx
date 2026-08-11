@@ -10,13 +10,15 @@ function App() {
   const shoppingDummy: ShoppingDataItem[] = [
     {
       id: 1,
-      title: "Milk"
+      title: "Milk",
+      completed: false
     }, {
       id: 2,
-      title: "Sugar"
+      title: "Sugar",
+      completed: false
     }
   ]
-  
+
   const [items, setItems] = useState<ShoppingDataItem[]>(shoppingDummy)
 
    function handleAddItem(title: string): void {
@@ -28,13 +30,19 @@ function App() {
       ...prev, 
       {
         id: Date.now(),
-        title: trimedTitle
+        title: trimedTitle,
+        completed: false
       },
     ])
   }
 
- 
-
+  function handleToggle(id: number): void {
+    setItems((items) => items.map((item) => 
+    item.id === id
+    ? {...item, completed: !item.completed}
+    : item
+    ))
+  }
  
 
   return (
@@ -45,6 +53,7 @@ function App() {
       />
       <ShoppingList 
         items={items}
+        onToggle={handleToggle}
       />
     </>
   )

@@ -1,18 +1,32 @@
 import type { ShoppingDataItem } from "../types/shoppingData"
 
- type ShoppingItemProps = {
-    item: ShoppingDataItem
-  }
+type ShoppingItemProps = {
+  item: ShoppingDataItem
+  onToggle: (id: number) => void
+}
 
-function ShoppingItem({ item } : ShoppingItemProps) {
+
+function ShoppingItem({ item, onToggle }: ShoppingItemProps) {
 
   return (
     <>
       <div>
         <ul>
-          <li>
-            {item.title}
-          </li>
+          <ul>
+            <input
+              type="checkbox"
+              onChange={() => onToggle(item.id)}
+            />
+
+            <span
+              style={{
+                textDecoration: item.completed ? 'line-through' : 'none'
+              }}
+            >
+              {item.title}
+            </span>
+
+          </ul>
         </ul>
       </div>
     </>

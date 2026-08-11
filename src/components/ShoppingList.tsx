@@ -3,9 +3,10 @@ import ShoppingItem from "./ShoppingItem";
 
 type ShoppingListProps = {
   items: ShoppingDataItem[];
+  onToggle: (id: number) => void
 }
 
-function ShoppingList({ items }: ShoppingListProps) {
+function ShoppingList({ items, onToggle }:  ShoppingListProps) {
 
   return (
     <>
@@ -15,6 +16,7 @@ function ShoppingList({ items }: ShoppingListProps) {
             <ShoppingItem
               key={item.id}
               item={item}
+              onToggle={onToggle}
             />
           )
         })}
