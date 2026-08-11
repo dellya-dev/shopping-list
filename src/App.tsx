@@ -6,7 +6,18 @@ import ShoppingList from './components/ShoppingList'
 import type { ShoppingDataItem } from './types/shoppingData'
 
 function App() {
-  const [items, setItems] = useState<ShoppingDataItem[]>([])
+  
+  const shoppingDummy: ShoppingDataItem[] = [
+    {
+      id: 1,
+      title: "Milk"
+    }, {
+      id: 2,
+      title: "Sugar"
+    }
+  ]
+  
+  const [items, setItems] = useState<ShoppingDataItem[]>(shoppingDummy)
 
    function handleAddItem(title: string): void {
     const trimedTitle = title.trim()
@@ -22,16 +33,7 @@ function App() {
     ])
   }
 
-  const shoppingDummy: ShoppingDataItem[] = [
-    {
-      id: 1,
-      title: "Milk"
-    }, {
-      id: 2,
-      title: "Sugar"
-    }
-  ]
-  console.log(shoppingDummy)
+ 
 
  
 
