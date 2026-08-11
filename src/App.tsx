@@ -6,7 +6,7 @@ import ShoppingList from './components/ShoppingList'
 import type { ShoppingDataItem } from './types/shoppingData'
 
 function App() {
-  
+
   const shoppingDummy: ShoppingDataItem[] = [
     {
       id: 1,
@@ -21,13 +21,13 @@ function App() {
 
   const [items, setItems] = useState<ShoppingDataItem[]>(shoppingDummy)
 
-   function handleAddItem(title: string): void {
+  function handleAddItem(title: string): void {
     const trimedTitle = title.trim()
 
     if (!trimedTitle) return
 
     setItems((prev) => [
-      ...prev, 
+      ...prev,
       {
         id: Date.now(),
         title: trimedTitle,
@@ -37,23 +37,28 @@ function App() {
   }
 
   function handleToggle(id: number): void {
-    setItems((items) => items.map((item) => 
-    item.id === id
-    ? {...item, completed: !item.completed}
-    : item
+    setItems((items) => items.map((item) =>
+      item.id === id
+        ? { ...item, completed: !item.completed }
+        : item
     ))
   }
- 
+
+  function handleDelete(id: number): void {
+    setItems((items) => items.filter((item) => item.id !== id))
+  }
+
 
   return (
     <>
       <h1>Shopping List</h1>
-      <ShoppingForm 
+      <ShoppingForm
         onAddItem={handleAddItem}
       />
-      <ShoppingList 
+      <ShoppingList
         items={items}
         onToggle={handleToggle}
+        onDelete={handleDelete}
       />
     </>
   )

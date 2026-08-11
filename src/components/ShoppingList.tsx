@@ -4,9 +4,10 @@ import ShoppingItem from "./ShoppingItem";
 type ShoppingListProps = {
   items: ShoppingDataItem[];
   onToggle: (id: number) => void
+  onDelete: (id: number) => void
 }
 
-function ShoppingList({ items, onToggle }:  ShoppingListProps) {
+function ShoppingList({ items, onToggle, onDelete }:  ShoppingListProps) {
 
   return (
     <>
@@ -17,6 +18,7 @@ function ShoppingList({ items, onToggle }:  ShoppingListProps) {
               key={item.id}
               item={item}
               onToggle={onToggle}
+              onDelete={onDelete}
             />
           )
         })}
