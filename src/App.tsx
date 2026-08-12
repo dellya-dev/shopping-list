@@ -1,11 +1,10 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ShoppingForm from './components/ShoppingForm'
 import ShoppingList from './components/ShoppingList'
 import type { FilterData, ShoppingDataItem } from './types/shoppingData'
 import FilterBar from './components/FilterBar'
-
 
 
 function App() {
@@ -22,7 +21,15 @@ function App() {
     }
   ]
 
-  const [items, setItems] = useState<ShoppingDataItem[]>(shoppingDummy)
+  const [items, setItems] = useState<ShoppingDataItem[]>( () => {const saved = localStorage.getItem("shopping-items")
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      return parsed
+    } else {
+      return shoppingDummy
+    }
+  })
+
   const [filter, setFilter] = useState<FilterData>("all")
 
   function handleAddItem(title: string): void {
@@ -63,7 +70,9 @@ function App() {
       }
     })
   
-
+    useEffect(() => {
+      localStorage.setItem("shopping-items", JSON.stringify(items))
+    }, [items])
 
   return (
     <>
