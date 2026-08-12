@@ -3,3 +3,5 @@ export type ShoppingDataItem = {
   title: string
   completed: boolean
 }
+
+export type FilterData = "all" | "active" | "completed"

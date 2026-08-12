@@ -3,7 +3,10 @@ import { useState } from 'react'
 import './App.css'
 import ShoppingForm from './components/ShoppingForm'
 import ShoppingList from './components/ShoppingList'
-import type { ShoppingDataItem } from './types/shoppingData'
+import type { FilterData, ShoppingDataItem } from './types/shoppingData'
+import FilterBar from './components/FilterBar'
+
+
 
 function App() {
 
@@ -20,6 +23,7 @@ function App() {
   ]
 
   const [items, setItems] = useState<ShoppingDataItem[]>(shoppingDummy)
+  const [filter, setFilter] = useState<FilterData>("all")
 
   function handleAddItem(title: string): void {
     const trimedTitle = title.trim()
@@ -48,6 +52,18 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id))
   }
 
+  const filteredItems  =
+    items.filter((item) => {
+      if (filter === "active") {
+        return item.completed === false
+      } else if (filter === "completed") {
+        return item.completed === true
+      } else {
+        return true
+      }
+    })
+  
+
 
   return (
     <>
@@ -55,8 +71,11 @@ function App() {
       <ShoppingForm
         onAddItem={handleAddItem}
       />
+      <FilterBar 
+        setFilter={setFilter}
+      />
       <ShoppingList
-        items={items}
+        items={filteredItems}
         onToggle={handleToggle}
         onDelete={handleDelete}
       />

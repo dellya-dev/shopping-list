@@ -16,6 +16,7 @@ function ShoppingItem({ item, onToggle, onDelete }: ShoppingItemProps) {
           <ul>
             <input
               type="checkbox"
+              checked={item.completed}
               onChange={() => onToggle(item.id)}
             />
 
