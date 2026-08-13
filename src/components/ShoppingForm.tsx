@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './ShoppingForm.css'
 
 type ShoppingFormProps = {
   onAddItem: (title: string) => void
@@ -15,7 +16,7 @@ function ShoppingForm({ onAddItem }: ShoppingFormProps) {
   console.log(input)
   return (
     <>
-      <div>
+      <div className="shopping-form">
         <input 
           type="text" 
           placeholder="Add Here..."

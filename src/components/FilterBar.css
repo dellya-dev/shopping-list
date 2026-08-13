@@ -1,0 +1,14 @@
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-bar button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-weight: 700;
+}

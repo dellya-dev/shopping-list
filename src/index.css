@@ -1,0 +1,46 @@
+:root {
+  --purple: #7c3aed;
+  --purple-hover: #6d28d9;
+  --lavender: #f5f3ff;
+  --purple-soft: #ede9fe;
+  --text: #2e1065;
+  --white: #ffffff;
+  --danger: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--lavender);
+  margin: auto;
+}
+
+#root {
+  width: 100%;
+}
+
+.shopping-form button {
+  background: var(--purple);
+  color: white;
+}
+
+.shopping-form button:hover,
+.filter-bar button:hover {
+  background: var(--purple-hover);
+  color: white;
+}
+
+.filter-bar button.active {
+  background: var(--purple);
+  color: white;
+}
+
+.shopping-item {
+  background: var(--white);
+}
+
+button {
+  color: var(--text);
+}

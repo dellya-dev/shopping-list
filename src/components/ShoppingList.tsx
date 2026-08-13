@@ -1,5 +1,6 @@
 import type { ShoppingDataItem } from "../types/shoppingData";
 import ShoppingItem from "./ShoppingItem";
+import './ShoppingList.css'
 
 type ShoppingListProps = {
   items: ShoppingDataItem[];
@@ -11,7 +12,7 @@ function ShoppingList({ items, onToggle, onDelete }:  ShoppingListProps) {
 
   return (
     <>
-      <div>
+      <div className="shopping-list">
         {items.map((item) => {
           return (
             <ShoppingItem

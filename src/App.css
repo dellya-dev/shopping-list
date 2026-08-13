@@ -1,0 +1,32 @@
+.app {
+  width: 90%;
+  max-width: 500px;
+  margin: 60px auto;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+   color: var(--text);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .app {
+    width: calc(100% - 24px);
+    margin: 20px auto;
+  }
+
+  .shopping-form {
+    flex-direction: column;
+  }
+
+  .shopping-form button {
+    width: 100%;
+  }
+
+  .filter-bar {
+    overflow-x: auto;
+  }
+}

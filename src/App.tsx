@@ -21,7 +21,8 @@ function App() {
     }
   ]
 
-  const [items, setItems] = useState<ShoppingDataItem[]>( () => {const saved = localStorage.getItem("shopping-items")
+  const [items, setItems] = useState<ShoppingDataItem[]>(() => {
+    const saved = localStorage.getItem("shopping-items")
     if (saved) {
       const parsed = JSON.parse(saved)
       return parsed
@@ -59,7 +60,7 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id))
   }
 
-  const filteredItems  =
+  const filteredItems =
     items.filter((item) => {
       if (filter === "active") {
         return item.completed === false
@@ -69,25 +70,27 @@ function App() {
         return true
       }
     })
-  
-    useEffect(() => {
-      localStorage.setItem("shopping-items", JSON.stringify(items))
-    }, [items])
+
+  useEffect(() => {
+    localStorage.setItem("shopping-items", JSON.stringify(items))
+  }, [items])
 
   return (
     <>
-      <h1>Shopping List</h1>
-      <ShoppingForm
-        onAddItem={handleAddItem}
-      />
-      <FilterBar 
-        setFilter={setFilter}
-      />
-      <ShoppingList
-        items={filteredItems}
-        onToggle={handleToggle}
-        onDelete={handleDelete}
-      />
+      <div className='app'>
+        <h1 className='title'>Shopping List</h1>
+        <ShoppingForm
+          onAddItem={handleAddItem}
+        />
+        <FilterBar
+          setFilter={setFilter}
+        />
+        <ShoppingList
+          items={filteredItems}
+          onToggle={handleToggle}
+          onDelete={handleDelete}
+        />
+      </div>
     </>
   )
 }
