@@ -43,4 +43,6 @@ body {
 
 button {
   color: var(--text);
+  font-family: "Roboto";
+  font-size: 15px;
 }

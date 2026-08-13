@@ -12,7 +12,7 @@ function ShoppingItem({ item, onToggle, onDelete }: ShoppingItemProps) {
 
   return (
     <>
-      <div className="shopping-item">
+      <div className={`shopping-item ${item.completed ? "completed" : ""}`}>
         <div className="shopping-item-content">
           <input
             type="checkbox"
@@ -21,9 +21,6 @@ function ShoppingItem({ item, onToggle, onDelete }: ShoppingItemProps) {
           />
           <span
             className="shopping-title"
-            style={{
-              textDecoration: item.completed ? 'line-through' : 'none'
-            }}
           >
             {item.title}
           </span>
