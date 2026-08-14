@@ -1,75 +1,129 @@
-# React + TypeScript + Vite
+# Shopping List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple shopping list application built with React and TypeScript. Users can add, complete, filter, and delete shopping items, with data persisted in the browser using `localStorage`.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Live Demo
+```
+[View Live Demo](YOUR_DEPLOYED_URL)
 
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* Add shopping items
+* Mark items as completed
+* Delete shopping items
+* Filter items by:
+  * All
+  * Active
+  * Completed
+* Persist shopping items using `localStorage`
+* Responsive design
+* Custom styled checkbox and interactive UI states
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Tech Stack
 
+* React
+* TypeScript
+* Vite
+* CSS
+* Browser `localStorage`
+
+## TypeScript
+
+This project was built as a practical introduction to using TypeScript with React.
+
+Some of the concepts practiced include:
+
+* Static typing
+* Type annotations
+* Union types
+* Typed component props
+* Typed state with `useState`
+* Function and callback types
+* Type-safe component communication
+* Type checking with `tsc`
+
+## Data Structure
+
+Each shopping item is represented as:
+
+```ts
+{
+  id: number;
+  title: string;
+  completed: boolean;
+}
 ```
+
+## Getting Started
+
+### Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+Open the local development URL shown in the terminal.
+
+## Type Checking
+
+To check the project for TypeScript errors without generating JavaScript files:
+
+```bash
+npx tsc --noEmit
+```
+
+## Production Build
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── FilterBar.tsx
+│   ├── ShoppingForm.tsx
+│   ├── ShoppingItem.tsx
+│   └── ShoppingList.tsx
+│
+├── types/
+│   └── shopping.ts
+│
+├── App.tsx
+├── App.css
+├── index.css
+└── main.tsx
+```
+
+## What I Practiced
+
+This project was created to practice building a React application with TypeScript while applying concepts learned from TypeScript fundamentals.
+
+The project focused on:
+
+* Component-based architecture
+* Props and typed props
+* State management with `useState`
+* Callback functions between components
+* Array methods such as `map()` and `filter()`
+* CRUD-style interactions
+* Union types
+* `localStorage`
+* Type checking
+* Responsive UI design
+* Production builds with Vite
+
