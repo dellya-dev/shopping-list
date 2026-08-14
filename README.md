@@ -4,8 +4,7 @@ A simple shopping list application built with React and TypeScript. Users can ad
 
 ## Live Demo
 ```
-[View Live Demo](YOUR_DEPLOYED_URL)
-
+https://shopping-list-ten-bice.vercel.app/
 ```
 
 ## Features
