@@ -56,6 +56,19 @@ Each shopping item is represented as:
 }
 ```
 
+## Screenshots
+
+### Desktop
+
+<img width="866" height="553" alt="Cuplikan layar 2026-08-14 095222" src="https://github.com/user-attachments/assets/c59a0416-10e3-4a9b-9e9a-6101153a53b8" />
+
+
+
+### Mobile
+
+<img width="432" height="527" alt="Cuplikan layar 2026-08-14 095244" src="https://github.com/user-attachments/assets/cb4a4900-7943-42ff-a7c5-5dddbd6594e7" />
+
+
 ## Getting Started
 
 ### Installation
